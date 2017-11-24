@@ -1,0 +1,83 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Tulostaulu";
+}
+
+<div class="col-md-12">
+    <p>@DateTime.Now</p>
+    <button id="btn-start">Aloita uusi peli</button>
+</div>
+<div id="controls" class="col-md-6" style="display:none">
+    <form id="form-update" action="/api/update" method="post">
+        Koti Juoksut<input name="homeRuns" autocomplete="off" /><br />
+        Vieras Juoksut<input name="awayRuns" autocomplete="off"/><br />
+        Palot<input name="inningStrikes" autocomplete="off"/><br />
+        Koti Voitot<input name="homeWins" autocomplete="off"/><br />
+        Vieras Voitot<input name="awayWins" autocomplete="off"/><br />
+        Jakso<input name="gamePeriod" autocomplete="off"/><br />
+        Jokerit<input name="inningJoker" autocomplete="off"/><br />
+        Lyöjät<input name="inningHitter" autocomplete="off"/><br />
+        Viimeisin Lyöjä<input name="inningLastHitter" autocomplete="off"/><br />
+        Vuoropari<input name="periodInning" autocomplete="off"/><br />
+        <button id="btn-update" type="submit">Päivitä</button>
+    </form>
+</div>
+<div class="col-md-6">
+    <h2>status</h2>
+    <div id="status"></div>
+    <h2>serial</h2>
+    <div id="serial"></div>
+</div>
+<script>
+    function updateView()
+    { 
+        $("#controls").show();
+        $.getJSON("/api/status", function (data) {
+            var html = "<p>";
+            for (key in data) {
+                $("#form-update input[name='" + key + "']").val(data[key]);
+                html += key + ": " + data[key] + "<br>";
+            }
+            html += "</p>";
+            $("#status").html(html);
+        });
+        $.getJSON("/api/serial", function (data) {
+            var html = "<p>";
+            html += data;
+            html += "</p>";
+            $("#serial").html(html);
+        });
+    }
+    $("#btn-start").on("click", function () {
+        $.ajax({
+            type: "GET",
+            url: "/api/start",
+            statusCode: {
+                200: function () {
+                    updateView();
+                },
+                500: function () {
+                    $("#status").html("ERROR");
+                }
+            }
+        });
+    });
+    $("#form-update").on("submit", function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        $.ajax({
+            type: "POST",
+            url: $(this).attr("action"),
+            data: $(this).serialize(),
+            statusCode: {
+                200: function () {
+                    updateView();
+                },
+                500: function () {
+                    $("#status").html("ERROR");
+                }
+            }
+        });
+    });
+</script>
