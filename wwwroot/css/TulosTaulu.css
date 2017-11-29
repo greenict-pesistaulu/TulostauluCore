@@ -15,10 +15,12 @@ input {
     color: #0f0 !important;
     text-align: center !important;
     font-size: 5em !important;
+    /*
     padding-top: 50px !important;
     padding-bottom: 50px !important;
+    */
+    height: auto !important;
     width: 100px !important;
-
     border: 0 !important;
     border-radius: 20px !important;
 }
