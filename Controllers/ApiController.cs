@@ -39,9 +39,9 @@ namespace TulostauluCore.Controllers
                 });
                 _ctx.SaveChanges();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return new ContentResult { StatusCode = 500 };
+                return new ContentResult { StatusCode = 500, Content=ex.Message };
             }
             return new ContentResult { StatusCode = 200 };
         }
@@ -68,9 +68,9 @@ namespace TulostauluCore.Controllers
                 taulu.InningTurn = char.Parse(Request.Form["inningTurn"]);
                 taulu.InningInsideTeam = Request.Form["inningInsideTeam"]; 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return new ContentResult { StatusCode = 500 };
+                return new ContentResult { StatusCode = 500, Content = ex.Message };
             }
             _ctx.SaveChanges();
             return new ContentResult { StatusCode = 200 };
