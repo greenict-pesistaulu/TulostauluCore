@@ -16,7 +16,6 @@ namespace TulostauluCore.Controllers
 
         public ApiController(TulostauluContext ctx)
         {
-            ctx.Database.EnsureCreated();
             _ctx = ctx;
         }
 
@@ -26,7 +25,18 @@ namespace TulostauluCore.Controllers
         {
             try
             {
-                _ctx.Live.Add(new Tulostaulu());
+                _ctx.Database.EnsureDeleted();
+                _ctx.Database.EnsureCreated();
+                _ctx.Live.Add(new Tulostaulu {
+                    GamePeriod = 1,
+                    HomeHitter = 1,
+                    AwayHitter = 1,
+                    HomeLastHitter = 9,
+                    AwayLastHitter = 9,
+                    InningJoker = 3,
+                    PeriodInning = 1,
+                    InningTurn = 'A'
+                });
                 _ctx.SaveChanges();
             }
             catch (Exception)
@@ -50,9 +60,13 @@ namespace TulostauluCore.Controllers
                 taulu.AwayWins = int.Parse(Request.Form["awayWins"]);
                 taulu.GamePeriod = int.Parse(Request.Form["gamePeriod"]);
                 taulu.InningJoker = int.Parse(Request.Form["inningJoker"]);
-                taulu.InningHitter = int.Parse(Request.Form["inningHitter"]);
-                taulu.InningLastHitter = int.Parse(Request.Form["inningLastHitter"]);
+                taulu.HomeHitter = int.Parse(Request.Form["homeHitter"]);
+                taulu.HomeLastHitter = int.Parse(Request.Form["homeLastHitter"]);
+                taulu.AwayHitter = int.Parse(Request.Form["awayHitter"]);
+                taulu.AwayLastHitter = int.Parse(Request.Form["homeLastHitter"]);
                 taulu.PeriodInning = int.Parse(Request.Form["periodInning"]);
+                taulu.InningTurn = char.Parse(Request.Form["inningTurn"]);
+                taulu.InningInsideTeam = Request.Form["inningInsideTeam"]; 
             }
             catch (Exception)
             {
@@ -86,18 +100,36 @@ namespace TulostauluCore.Controllers
              * j - Tällähetkellä pelattava vuoropari. 2 digittiä. Max. esitettävä numero "9 + "A" ja "L" ykköset digitissä"
              */
             Tulostaulu taulu = _ctx.Live.Last();
-            return Json(
-                    $"a{taulu.HomeRuns}" +
-                    $"b{taulu.AwayRuns}" +
-                    $"c{taulu.InningStrikes}" +
-                    $"d{taulu.HomeWins}" +
-                    $"e{taulu.AwayWins}" +
-                    $"f{taulu.GamePeriod}" +
-                    $"g{taulu.InningJoker}" +
-                    $"h{taulu.InningHitter}" +
-                    $"i{taulu.InningLastHitter}" +
-                    $"j{taulu.PeriodInning}"
-                );
+            if (taulu.InningInsideTeam == "home")
+            {
+                return Json(
+                        $"a{taulu.HomeRuns}" +
+                        $"b{taulu.AwayRuns}" +
+                        $"c{taulu.InningStrikes}" +
+                        $"d{taulu.HomeWins}" +
+                        $"e{taulu.AwayWins}" +
+                        $"f{taulu.GamePeriod}" +
+                        $"g{taulu.InningJoker}" +
+                        $"h{taulu.HomeHitter}" +
+                        $"i{taulu.HomeLastHitter}" +
+                        $"j{taulu.PeriodInning}{taulu.InningTurn}"
+                    );
+            }
+            else
+            {
+                return Json(
+                        $"a{taulu.HomeRuns}" +
+                        $"b{taulu.AwayRuns}" +
+                        $"c{taulu.InningStrikes}" +
+                        $"d{taulu.HomeWins}" +
+                        $"e{taulu.AwayWins}" +
+                        $"f{taulu.GamePeriod}" +
+                        $"g{taulu.InningJoker}" +
+                        $"h{taulu.AwayHitter}" +
+                        $"i{taulu.AwayLastHitter}" +
+                        $"j{taulu.PeriodInning}{taulu.InningTurn}"
+                    );
+            }
         }
     }
 }

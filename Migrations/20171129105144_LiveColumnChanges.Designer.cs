@@ -10,9 +10,10 @@ using TulostauluCore.Models;
 namespace TulostauluCore.Migrations
 {
     [DbContext(typeof(TulostauluContext))]
-    partial class TulostauluContextModelSnapshot : ModelSnapshot
+    [Migration("20171129105144_LiveColumnChanges")]
+    partial class LiveColumnChanges
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
