@@ -4,6 +4,123 @@
     ViewData["Title"] = "Tulostaulu";
 }
 
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4" style="background-color:yellow;">
+            Koti
+        </div>
+        <div class="col-sm-4" style="background-color:pink;">
+            Palot
+        </div>
+        <div class="col-sm-4" style="background-color:red;">
+            Vieras
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4" style="background-color:yellow;">
+            <div class="form-inline">
+                <button class="btn btn-danger"><span class="glyphicon glyphicon-minus"></span></button>
+                <input class="form-control" size="2" name="homeRuns" autocomplete="off" />
+                <button class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></button>
+            </div>
+        </div>
+        <div class="col-sm-4" style="background-color:pink;">
+            <div class="form-inline">
+                <button class="btn btn-danger"><span class="glyphicon glyphicon-minus"></span></button>
+                <input name="inningStrikes" autocomplete="off" />
+                <button class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></button>
+            </div>
+        </div>
+        <div class="col-sm-4" style="background-color:red;">
+            <div class="form-inline">
+                <button class="btn btn-danger"><span class="glyphicon glyphicon-minus"></span></button>
+                <input class="form-control" size="2" name="awayRuns" autocomplete="off" />
+                <button class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4" style="background-color:yellow;">
+            Jaksovoitto
+        </div>
+        <div class="col-sm-4" style="background-color:pink;">
+            Jakso
+        </div>
+        <div class="col-sm-4" style="background-color:red;">
+            Jaksovoitto
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4" style="background-color:yellow;">
+            <div class="form-inline">
+                <button class="btn btn-danger"><span class="glyphicon glyphicon-minus"></span></button>
+                <input class="form-control" size="2" name="homeWins" autocomplete="off" />
+                <button class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></button>
+            </div>
+        </div>
+        <div class="col-sm-4" style="background-color:pink;">
+            <div class="form-inline">
+                <button class="btn btn-danger"><span class="glyphicon glyphicon-minus"></span></button>
+                <input class="form-control" size="2" name="gamePeriod" autocomplete="off" />
+                <button class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></button>
+            </div>
+        </div>
+        <div class="col-sm-4" style="background-color:red;">
+            <div class="form-inline">
+                <button class="btn btn-danger"><span class="glyphicon glyphicon-minus"></span></button>
+                <input class="form-control" size="2" name="awayWins" autocomplete="off" />
+                <button class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3" style="background-color:peru;">
+            Vuoropari
+        </div>
+        <div class="col-sm-3" style="background-color:fuchsia;">
+            Viim. Lyöjä
+        </div>
+        <div class="col-sm-3" style="background-color:fuchsia;">
+            Jokeri
+        </div>
+        <div class="col-sm-3" style="background-color:moccasin;">
+            Lyöjä
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3" style="background-color:peru;">
+            <div class="form-inline">
+                <button class="btn btn-danger"><span class="glyphicon glyphicon-minus"></span></button>
+                <input class="form-control" size="2" name="periodInning" autocomplete="off" />
+                <button class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></button>
+            </div>
+        </div>
+        <div class="col-sm-3" style="background-color:fuchsia;">
+            <div class="form-inline">
+                <button class="btn btn-danger"><span class="glyphicon glyphicon-minus"></span></button>
+                <input class="form-control" size="2" name="HomeLastHitter" autocomplete="off" />
+                <input class="form-control hidden" size="2" name="AwayLastHitter" autocomplete="off" />
+                <button class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></button>
+            </div>
+        </div>
+        <div class="col-sm-3" style="background-color:fuchsia;">
+            <div class="form-inline">
+                <button class="btn btn-danger"><span class="glyphicon glyphicon-minus"></span></button>
+                <input class="form-control" size="2" name="inningJoker" autocomplete="off" />
+                <button class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></button>
+            </div>
+        </div>
+        <div class="col-sm-3" style="background-color:moccasin;">
+            <div class="form-inline">
+                <button class="btn btn-danger"><span class="glyphicon glyphicon-minus"></span></button>
+                <input class="form-control" size="2" name="inningHitter" autocomplete="off" />
+                <button class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <div class="col-md-12">
     <p>@DateTime.Now</p>
     <button id="btn-start">Aloita uusi peli</button>
@@ -36,7 +153,7 @@
         $.getJSON("/api/status", function (data) {
             var html = "<p>";
             for (key in data) {
-                $("#form-update input[name='" + key + "']").val(data[key]);
+                $("input[name='" + key + "']").val(data[key]);
                 html += key + ": " + data[key] + "<br>";
             }
             html += "</p>";

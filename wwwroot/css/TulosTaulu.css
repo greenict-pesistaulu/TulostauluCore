@@ -1,0 +1,14 @@
+﻿body {
+    background-image: url('/images/taustakuva.jpg');
+    background-size: cover;
+    color: #32cd32;
+}
+
+.container {
+    background-color: rgba(0,0,255,0.5) !important;
+}
+
+input {
+    background-color: black !important;
+    color: #0f0 !important;
+}
