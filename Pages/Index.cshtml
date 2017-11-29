@@ -4,197 +4,143 @@
     ViewData["Title"] = "Tulostaulu";
 }
 
-<div class="container">
-    <div class="row">
-        <div class="col-sm-4" style="background-color:yellow;">
-            Koti
-        </div>
-        <div class="col-sm-4" style="background-color:pink;">
-            Palot
-        </div>
-        <div class="col-sm-4" style="background-color:red;">
-            Vieras
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-4" style="background-color:yellow;">
-            <div class="form-inline">
-                <button class="btn btn-danger"><span class="glyphicon glyphicon-minus"></span></button>
-                <input class="form-control" size="2" name="homeRuns" autocomplete="off" />
-                <button class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></button>
-            </div>
-        </div>
-        <div class="col-sm-4" style="background-color:pink;">
-            <div class="form-inline">
-                <button class="btn btn-danger"><span class="glyphicon glyphicon-minus"></span></button>
-                <input name="inningStrikes" autocomplete="off" />
-                <button class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></button>
-            </div>
-        </div>
-        <div class="col-sm-4" style="background-color:red;">
-            <div class="form-inline">
-                <button class="btn btn-danger"><span class="glyphicon glyphicon-minus"></span></button>
-                <input class="form-control" size="2" name="awayRuns" autocomplete="off" />
-                <button class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></button>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-4" style="background-color:yellow;">
-            Jaksovoitto
-        </div>
-        <div class="col-sm-4" style="background-color:pink;">
-            Jakso
-        </div>
-        <div class="col-sm-4" style="background-color:red;">
-            Jaksovoitto
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-4" style="background-color:yellow;">
-            <div class="form-inline">
-                <button class="btn btn-danger"><span class="glyphicon glyphicon-minus"></span></button>
-                <input class="form-control" size="2" name="homeWins" autocomplete="off" />
-                <button class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></button>
-            </div>
-        </div>
-        <div class="col-sm-4" style="background-color:pink;">
-            <div class="form-inline">
-                <button class="btn btn-danger"><span class="glyphicon glyphicon-minus"></span></button>
-                <input class="form-control" size="2" name="gamePeriod" autocomplete="off" />
-                <button class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></button>
-            </div>
-        </div>
-        <div class="col-sm-4" style="background-color:red;">
-            <div class="form-inline">
-                <button class="btn btn-danger"><span class="glyphicon glyphicon-minus"></span></button>
-                <input class="form-control" size="2" name="awayWins" autocomplete="off" />
-                <button class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></button>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-3" style="background-color:peru;">
-            Vuoropari
-        </div>
-        <div class="col-sm-3" style="background-color:fuchsia;">
-            Viim. Lyöjä
-        </div>
-        <div class="col-sm-3" style="background-color:fuchsia;">
-            Jokeri
-        </div>
-        <div class="col-sm-3" style="background-color:moccasin;">
-            Lyöjä
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-3" style="background-color:peru;">
-            <div class="form-inline">
-                <button class="btn btn-danger"><span class="glyphicon glyphicon-minus"></span></button>
-                <input class="form-control" size="2" name="periodInning" autocomplete="off" />
-                <button class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></button>
-            </div>
-        </div>
-        <div class="col-sm-3" style="background-color:fuchsia;">
-            <div class="form-inline">
-                <button class="btn btn-danger"><span class="glyphicon glyphicon-minus"></span></button>
-                <input class="form-control" size="2" name="HomeLastHitter" autocomplete="off" />
-                <input class="form-control hidden" size="2" name="AwayLastHitter" autocomplete="off" />
-                <button class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></button>
-            </div>
-        </div>
-        <div class="col-sm-3" style="background-color:fuchsia;">
-            <div class="form-inline">
-                <button class="btn btn-danger"><span class="glyphicon glyphicon-minus"></span></button>
-                <input class="form-control" size="2" name="inningJoker" autocomplete="off" />
-                <button class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></button>
-            </div>
-        </div>
-        <div class="col-sm-3" style="background-color:moccasin;">
-            <div class="form-inline">
-                <button class="btn btn-danger"><span class="glyphicon glyphicon-minus"></span></button>
-                <input class="form-control" size="2" name="inningHitter" autocomplete="off" />
-                <button class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></button>
-            </div>
-        </div>
-    </div>
-</div>
+<div align="center">
 
+    <h1>Tulostaulu</h1>
+    <div class="row">
+        <div class="col-sm-4">
+            <h2>Koti</h2>
+        </div>
+        <div class="col-sm-4">
+            <h2>Palot</h2>
+        </div>
+        <div class="col-sm-4">
+            <h2>Vieras</h2>
+        </div>
+    </div>
+    <form id="updateTulosTaulu" action="/api/update">
+        <div class="row">
 
-<div class="col-md-12">
-    <p>@DateTime.Now</p>
-    <button id="btn-start">Aloita uusi peli</button>
-</div>
-<div id="controls" class="col-md-6" style="display:none">
-    <form id="form-update" action="/api/update" method="post">
-        Koti Juoksut<input name="homeRuns" autocomplete="off" /><br />
-        Vieras Juoksut<input name="awayRuns" autocomplete="off"/><br />
-        Palot<input name="inningStrikes" autocomplete="off"/><br />
-        Koti Voitot<input name="homeWins" autocomplete="off"/><br />
-        Vieras Voitot<input name="awayWins" autocomplete="off"/><br />
-        Jakso<input name="gamePeriod" autocomplete="off"/><br />
-        Jokerit<input name="inningJoker" autocomplete="off"/><br />
-        Lyöjät<input name="inningHitter" autocomplete="off"/><br />
-        Viimeisin Lyöjä<input name="inningLastHitter" autocomplete="off"/><br />
-        Vuoropari<input name="periodInning" autocomplete="off"/><br />
-        <button id="btn-update" type="submit">Päivitä</button>
+            <div class="col-sm-4">
+                <div class="form-inline">
+                    <button class="btn btn-lg btn-danger btn-homeRuns-minus" data-target="homeRuns" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
+                    <input class="form-control" size="1" name="homeRuns" autocomplete="off" />
+                    <button class="btn btn-success btn-homeRuns-plus" data-target="homeRuns" data-method="plus"><span class="glyphicon glyphicon-plus"></span></button>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-inline">
+                    <button class="btn btn-danger btn-inningStrikes-minus" data-target="inningStrikes" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
+                    <input class="form-control" size="1" name="inningStrikes" autocomplete="off" />
+                    <button class="btn btn-success btn-inningStrikes-plus" data-target="inningStrikes" data-method="plus"><span class="glyphicon glyphicon-plus"></span></button>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-inline">
+                    <button class="btn btn-danger btn-awayRuns-minus" data-target="awayRuns" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
+                    <input class="form-control" size="1" name="awayRuns" autocomplete="off" />
+                    <button class="btn btn-success btn-awayRuns-plus" data-target="awayRuns" data-method="plus"><span class="glyphicon glyphicon-plus"></span></button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <h2>Jaksovoitto</h2>
+            </div>
+            <div class="col-sm-4">
+                <h2>Jakso</h2>
+            </div>
+            <div class="col-sm-4">
+                <h2>Jaksovoitto</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-inline">
+                    <button class="btn btn-danger btn-homeWins-minus" data-target="homeWins" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
+                    <input class="form-control" size="1" name="homeWins" autocomplete="off" />
+                    <button class="btn btn-success btn-homeWins-plus" data-target="homeWins" data-method="plus"><span class="glyphicon glyphicon-plus"></span></button>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-inline">
+                    <button class="btn btn-danger btn-gamePeriod-minus" data-target="gamePeriod" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
+                    <input class="form-control" size="1" name="gamePeriod" autocomplete="off" />
+                    <button class="btn btn-success btn-gamePeriod-plus" data-target="gamePeriod" data-method="plus"><span class="glyphicon glyphicon-plus"></span></button>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-inline">
+                    <button class="btn btn-danger btn-awayWins-minus" data-target="awayWins" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
+                    <input class="form-control" size="1" name="awayWins" autocomplete="off" />
+                    <button class="btn btn-success btn-awayWins-plus" data-target="awayWins" data-method="plus"><span class="glyphicon glyphicon-plus"></span></button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <h2>Vuoropari</h2>
+            </div>
+            <div class="col-sm-3">
+                <h2>Viim. Lyöjä</h2>
+            </div>
+            <div class="col-sm-3">
+                <h2>Jokeri</h2>
+            </div>
+            <div class="col-sm-3">
+                <h2>Lyöjä</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="form-inline">
+                    <button class="btn btn-danger btn-periodInning-minus" data-target="periodInning" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
+                    <input class="form-control" size="1" name="periodInning" autocomplete="off" />
+                    <button class="btn btn-success btn-periodInning-plus" data-target="periodInning" data-method="plus"><span class="glyphicon glyphicon-plus"></span></button>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-inline">
+                    <button class="btn btn-danger btn-homeLastHitter-minus" data-target="homeLastHitter" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
+                    <input class="form-control" size="1" name="homeLastHitter" autocomplete="off" />
+                    <input class="form-control hidden" size="1" name="awayLastHitter" autocomplete="off" />
+                    <button class="btn btn-success btn-awayLastHitter-plus" data-target="homeLastHitter" data-method="plus"><span class="glyphicon glyphicon-plus"></span></button>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-inline">
+                    <button class="btn btn-danger btn-inningJoker-minus" data-target="inningJoker" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
+                    <input class="form-control" size="1" name="inningJoker" autocomplete="off" />
+                    <button class="btn btn-success btn-inningJoker-plus" data-target="inningJoker" data-method="plus"><span class="glyphicon glyphicon-plus"></span></button>
+                </div>
+            </div>
+            <div class="col-sm-3 home">
+                <div class="form-inline">
+                    <button class="btn btn-danger btn-homeHitter-minus" data-target="homeHitter" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
+                    <input class="form-control" size="1" name="homeHitter" autocomplete="off" />
+                    <button class="btn btn-success btn-awayHitter-plus" data-target="homeHitter" data-method="plus"><span class="glyphicon glyphicon-plus"></span></button>
+                </div>
+            </div>
+            <div class="col-sm-3 away hidden">
+                <div class="form-inline">
+                    <button class="btn btn-danger btn-homeHitter-minus" data-target="awayHitter" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
+                    <input class="form-control hidden" size="1" name="awayHitter" autocomplete="off" />
+                    <button class="btn btn-success btn-awayHitter-plus" data-target="awayHitter" data-method="plus"><span class="glyphicon glyphicon-plus"></span></button>
+                </div>
+            </div>
+        </div>
     </form>
 </div>
+
+<div class="col-md-12">
+    <button id="btn-start">Aloita uusi peli</button>
+</div>
+
 <div class="col-md-6">
     <h2>status</h2>
     <div id="status"></div>
     <h2>serial</h2>
     <div id="serial"></div>
 </div>
-<script>
-    function updateView()
-    { 
-        $("#controls").show();
-        $.getJSON("/api/status", function (data) {
-            var html = "<p>";
-            for (key in data) {
-                $("input[name='" + key + "']").val(data[key]);
-                html += key + ": " + data[key] + "<br>";
-            }
-            html += "</p>";
-            $("#status").html(html);
-        });
-        $.getJSON("/api/serial", function (data) {
-            var html = "<p>";
-            html += data;
-            html += "</p>";
-            $("#serial").html(html);
-        });
-    }
-    $("#btn-start").on("click", function () {
-        $.ajax({
-            type: "GET",
-            url: "/api/start",
-            statusCode: {
-                200: function () {
-                    updateView();
-                },
-                500: function () {
-                    $("#status").html("ERROR");
-                }
-            }
-        });
-    });
-    $("#form-update").on("submit", function (event) {
-        event.preventDefault();
-        event.stopPropagation();
-        $.ajax({
-            type: "POST",
-            url: $(this).attr("action"),
-            data: $(this).serialize(),
-            statusCode: {
-                200: function () {
-                    updateView();
-                },
-                500: function () {
-                    $("#status").html("ERROR");
-                }
-            }
-        });
-    });
-</script>
+
+<script src="~/js/TulosTaulu.js"></script>
