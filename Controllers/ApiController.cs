@@ -205,7 +205,22 @@ namespace TulostauluCore.Controllers
             {
                 History undo = _ctx.History.Last();
                 _ctx.History.Remove(undo);
-                _ctx.Live.Add(undo);
+                _ctx.Live.Add(new Tulostaulu {
+                    AwayHitter = undo.AwayHitter,
+                    AwayLastHitter = undo.AwayLastHitter,
+                    AwayRuns = undo.AwayRuns,
+                    AwayWins = undo.AwayWins,
+                    HomeHitter = undo.HomeHitter,
+                    HomeLastHitter = undo.HomeLastHitter,
+                    HomeRuns = undo.HomeRuns,
+                    HomeWins = undo.HomeWins,
+                    GamePeriod = undo.GamePeriod,
+                    PeriodInning = undo.PeriodInning,
+                    InningInsideTeam = undo.InningInsideTeam,
+                    InningJoker = undo.InningJoker,
+                    InningStrikes = undo.InningStrikes,
+                    InningTurn = undo.InningTurn
+                });
                 _ctx.SaveChanges();
             }
             catch (Exception ex)
