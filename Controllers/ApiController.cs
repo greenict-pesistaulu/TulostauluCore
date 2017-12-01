@@ -126,7 +126,7 @@ namespace TulostauluCore.Controllers
                 {
                     int AwayScore = _ctx.Score.Where(x => x.GamePeriod == taulu.GamePeriod).Sum(x => x.AwayRuns);
                     int HomeScore = _ctx.Score.Where(x => x.GamePeriod == taulu.GamePeriod).Sum(x => x.HomeRuns);
-                    if (HomeScore == AwayScore)
+                    if (HomeScore != AwayScore)
                     {
                         if (HomeScore > AwayScore)
                         {
