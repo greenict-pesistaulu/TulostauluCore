@@ -20,7 +20,7 @@ namespace TulostauluCore.Controllers
         }
 
         [Route("start")]
-        [HttpGet]
+        [HttpPost]
         public ContentResult Start()
         {
             try
@@ -35,7 +35,8 @@ namespace TulostauluCore.Controllers
                     AwayLastHitter = 9,
                     InningJoker = 3,
                     PeriodInning = 1,
-                    InningTurn = 'A'
+                    InningTurn = 'A',
+                    InningInsideTeam = Request.Form["inningInsideTeam"]
                 });
                 _ctx.SaveChanges();
             }
