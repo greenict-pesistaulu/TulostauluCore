@@ -6,25 +6,10 @@
 
 <div align="center">
     <h1>Tulostaulu</h1>
-    <div class="row">
-        <div class="col-sm-4">
-            <span class="glyphicon glyphicon-triangle-left home" id="turnTriangleLeftHome"></span>
-            <h2>Koti</h2>
-            <span class="glyphicon glyphicon-triangle-right home" id="turnTriangleRightHome"></span>
-        </div>
-        <div class="col-sm-4">
-            <h2>Palot</h2>
-        </div>
-        <div class="col-sm-4">
-            <span class="glyphicon glyphicon-triangle-left away" id="turnTriangleLeftAway"></span>
-            <h2>Vieras</h2>
-            <span class="glyphicon glyphicon-triangle-right away" id="turnTriangleRightAway"></span>
-        </div>
-    </div>
     <form id="updateTulosTaulu" action="/api/update">
         <div class="row">
-
             <div class="col-sm-4">
+                <h2><span class="glyphicon glyphicon-triangle-left home" id="turnTriangleLeftHome"></span>Koti<span class="glyphicon glyphicon-triangle-right home" id="turnTriangleRightHome"></span></h2>
                 <div class="form-inline">
                     <button class="btn btn-lg btn-danger btn-homeRuns-minus" data-target="homeRuns" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
                     <input class="form-control" size="1" name="homeRuns" autocomplete="off" />
@@ -32,6 +17,7 @@
                 </div>
             </div>
             <div class="col-sm-4">
+                <h2>Palot</h2>
                 <div class="form-inline">
                     <button class="btn btn-danger btn-inningStrikes-minus" data-target="inningStrikes" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
                     <input class="form-control" size="1" name="inningStrikes" autocomplete="off" />
@@ -39,7 +25,8 @@
                 </div>
             </div>
             <div class="col-sm-4">
-                <div class="form-inline">
+                <h2><span class="glyphicon glyphicon-triangle-left away" id="turnTriangleLeftAway"></span>Vieras<span class="glyphicon glyphicon-triangle-right away" id="turnTriangleRightAway"></span></h2>
+               <div class="form-inline">
                     <button class="btn btn-danger btn-awayRuns-minus" data-target="awayRuns" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
                     <input class="form-control" size="1" name="awayRuns" autocomplete="off" />
                     <button class="btn btn-success btn-awayRuns-plus" data-target="awayRuns" data-method="plus"><span class="glyphicon glyphicon-plus"></span></button>
@@ -49,16 +36,6 @@
         <div class="row">
             <div class="col-sm-4">
                 <h2>Jaksovoitto</h2>
-            </div>
-            <div class="col-sm-4">
-                <h2>Jakso</h2>
-            </div>
-            <div class="col-sm-4">
-                <h2>Jaksovoitto</h2>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-4">
                 <div class="form-inline">
                     <button class="btn btn-danger btn-homeWins-minus editControl" data-target="homeWins" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
                     <input class="form-control" size="1" name="homeWins" autocomplete="off" />
@@ -66,6 +43,7 @@
                 </div>
             </div>
             <div class="col-sm-4">
+                <h2>Jakso</h2>
                 <div class="form-inline">
                     <button class="btn btn-danger btn-gamePeriod-minus editControl" data-target="gamePeriod" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
                     <input class="form-control" size="1" name="gamePeriod" autocomplete="off" />
@@ -73,6 +51,7 @@
                 </div>
             </div>
             <div class="col-sm-4">
+                <h2>Jaksovoitto</h2>
                 <div class="form-inline">
                     <button class="btn btn-danger btn-awayWins-minus editControl" data-target="awayWins" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
                     <input class="form-control" size="1" name="awayWins" autocomplete="off" />
