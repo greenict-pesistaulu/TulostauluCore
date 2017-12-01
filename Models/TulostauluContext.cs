@@ -14,5 +14,7 @@ namespace TulostauluCore.Models
         }
 
         public DbSet<Tulostaulu> Live { get; set; }
+        public DbSet<Tulostaulu> History { get; set; }
+        public DbSet<Score> Score { get; set; }
     }
 }

@@ -83,6 +83,11 @@ namespace TulostauluCore.Controllers
             Tulostaulu taulu = _ctx.Live.Last();
             bool GamePeriodChanged = false;
 
+            // Tallenna tilanne undoa varten
+            Tulostaulu undo = new Tulostaulu();
+            undo = taulu;
+            _ctx.History.Add(undo);
+
             // Reset Palot ja Jokerit
             taulu.InningStrikes = 0;
             taulu.InningJoker = 3;
@@ -90,6 +95,13 @@ namespace TulostauluCore.Controllers
             // Vaihtuuko vuoropari
             if (taulu.InningTurn == 'L')
             {
+                _ctx.Score.Add(new Score
+                {
+                    AwayRuns = taulu.AwayRuns,
+                    HomeRuns = taulu.HomeRuns,
+                    GamePeriod = taulu.GamePeriod,
+                    PeriodInning = taulu.PeriodInning
+                });
                 taulu.HomeRuns = 0;
                 taulu.AwayRuns = 0;
                 taulu.PeriodInning += 1;
@@ -97,6 +109,19 @@ namespace TulostauluCore.Controllers
                 // Vaihtuuko jakso
                 if (taulu.PeriodInning > 4)
                 {
+                    int AwayScore = _ctx.Score.Where(x => x.GamePeriod == taulu.GamePeriod).Sum(x => x.AwayRuns);
+                    int HomeScore = _ctx.Score.Where(x => x.GamePeriod == taulu.GamePeriod).Sum(x => x.HomeRuns);
+                    if (HomeScore == AwayScore)
+                    {
+                        if (HomeScore > AwayScore)
+                        {
+                            taulu.HomeWins += 1;
+                        }
+                        else
+                        {
+                            taulu.AwayWins += 1;
+                        }
+                    }
                     taulu.PeriodInning = 1;
                     taulu.GamePeriod += 1;
                     GamePeriodChanged = true;
@@ -156,6 +181,24 @@ namespace TulostauluCore.Controllers
         public JsonResult GetStatus()
         {
             return Json(_ctx.Live.Last());
+        }
+
+        [Route("undo")]
+        [HttpGet]
+        public ContentResult DoUndo()
+        {
+            try
+            {
+                Tulostaulu undo = _ctx.History.Last();
+                _ctx.History.Remove(undo);
+                _ctx.Live.Add(undo);
+                _ctx.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                return new ContentResult { StatusCode = 500, Content = ex.Message };
+            }
+            return new ContentResult { StatusCode = 200 };
         }
 
         [Route("serial")]
