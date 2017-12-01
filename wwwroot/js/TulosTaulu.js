@@ -88,19 +88,8 @@ $("#undoChanges").on("click", function () {
     });
 });
 
-$("#undoChanges").on("click", function () {
-    $.ajax({
-        type: "GET",
-        url: "/api/periodend",
-        statusCode: {
-            200: function () {
-                updateView();
-            },
-            500: function () {
-                $("#status").html("ERROR");
-            }
-        }
-    });
+$('#editControl').on("click", function () {
+    $('.editControl').toggle();
 });
 
 
