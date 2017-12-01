@@ -84,8 +84,22 @@ namespace TulostauluCore.Controllers
             bool GamePeriodChanged = false;
 
             // Tallenna tilanne undoa varten
-            Tulostaulu undo = new Tulostaulu();
-            undo = taulu;
+            History undo = new History {
+                AwayHitter = taulu.AwayHitter,
+                AwayLastHitter= taulu.AwayLastHitter,
+                AwayRuns = taulu.AwayRuns,
+                AwayWins = taulu.AwayWins,
+                HomeHitter = taulu.HomeHitter,
+                HomeLastHitter = taulu.HomeLastHitter,
+                HomeRuns = taulu.HomeRuns,
+                HomeWins = taulu.HomeWins,
+                GamePeriod = taulu.GamePeriod,
+                PeriodInning = taulu.PeriodInning,
+                InningInsideTeam = taulu.InningInsideTeam,
+                InningJoker = taulu.InningJoker,
+                InningStrikes = taulu.InningStrikes,
+                InningTurn = taulu.InningTurn
+            };
             _ctx.History.Add(undo);
 
             // Reset Palot ja Jokerit
@@ -189,7 +203,7 @@ namespace TulostauluCore.Controllers
         {
             try
             {
-                Tulostaulu undo = _ctx.History.Last();
+                History undo = _ctx.History.Last();
                 _ctx.History.Remove(undo);
                 _ctx.Live.Add(undo);
                 _ctx.SaveChanges();

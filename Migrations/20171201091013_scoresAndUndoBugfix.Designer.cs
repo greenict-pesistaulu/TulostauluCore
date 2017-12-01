@@ -11,9 +11,10 @@ using TulostauluCore.Models;
 namespace TulostauluCore.Migrations
 {
     [DbContext(typeof(TulostauluContext))]
-    partial class TulostauluContextModelSnapshot : ModelSnapshot
+    [Migration("20171201091013_scoresAndUndoBugfix")]
+    partial class scoresAndUndoBugfix
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
