@@ -57,23 +57,23 @@
         <div class="row">
             <div class="col-sm-4">
                 <div class="form-inline">
-                    <button class="btn btn-danger btn-homeWins-minus" data-target="homeWins" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
+                    <button class="btn btn-danger btn-homeWins-minus editControl" data-target="homeWins" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
                     <input class="form-control" size="1" name="homeWins" autocomplete="off" />
-                    <button class="btn btn-success btn-homeWins-plus" data-target="homeWins" data-method="plus"><span class="glyphicon glyphicon-plus"></span></button>
+                    <button class="btn btn-success btn-homeWins-plus editControl" data-target="homeWins" data-method="plus"><span class="glyphicon glyphicon-plus"></span></button>
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="form-inline">
-                    <button class="btn btn-danger btn-gamePeriod-minus" data-target="gamePeriod" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
+                    <button class="btn btn-danger btn-gamePeriod-minus editControl" data-target="gamePeriod" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
                     <input class="form-control" size="1" name="gamePeriod" autocomplete="off" />
-                    <button class="btn btn-success btn-gamePeriod-plus" data-target="gamePeriod" data-method="plus"><span class="glyphicon glyphicon-plus"></span></button>
+                    <button class="btn btn-success btn-gamePeriod-plus editControl" data-target="gamePeriod" data-method="plus"><span class="glyphicon glyphicon-plus"></span></button>
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="form-inline">
-                    <button class="btn btn-danger btn-awayWins-minus" data-target="awayWins" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
+                    <button class="btn btn-danger btn-awayWins-minus editControl" data-target="awayWins" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
                     <input class="form-control" size="1" name="awayWins" autocomplete="off" />
-                    <button class="btn btn-success btn-awayWins-plus" data-target="awayWins" data-method="plus"><span class="glyphicon glyphicon-plus"></span></button>
+                    <button class="btn btn-success btn-awayWins-plus editControl" data-target="awayWins" data-method="plus"><span class="glyphicon glyphicon-plus"></span></button>
                 </div>
             </div>
         </div>
@@ -94,17 +94,17 @@
         <div class="row">
             <div class="col-sm-3">
                 <div class="form-inline">
-                    <button class="btn btn-danger btn-periodInning-minus" data-target="periodInning" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
+                    <button class="btn btn-danger btn-periodInning-minus editControl" data-target="periodInning" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
                     <input class="form-control" size="1" name="periodInning" autocomplete="off" />
-                    <button class="btn btn-success btn-periodInning-plus" data-target="periodInning" data-method="plus"><span class="glyphicon glyphicon-plus"></span></button>
+                    <button class="btn btn-success btn-periodInning-plus editControl" data-target="periodInning" data-method="plus"><span class="glyphicon glyphicon-plus"></span></button>
                 </div>
             </div>
             <div class="col-sm-3">
                 <div class="form-inline">
-                    <button class="btn btn-danger btn-homeLastHitter-minus" data-target="homeLastHitter" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
+                    <button class="btn btn-danger btn-homeLastHitter-minus editControl" data-target="homeLastHitter" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
                     <input class="form-control" size="1" name="homeLastHitter" autocomplete="off" />
                     <input class="form-control hidden" size="1" name="awayLastHitter" autocomplete="off" />
-                    <button class="btn btn-success btn-awayLastHitter-plus" data-target="homeLastHitter" data-method="plus"><span class="glyphicon glyphicon-plus"></span></button>
+                    <button class="btn btn-success btn-awayLastHitter-plus editControl" data-target="homeLastHitter" data-method="plus"><span class="glyphicon glyphicon-plus"></span></button>
                 </div>
             </div>
             <div class="col-sm-3">
@@ -129,9 +129,31 @@
                 </div>
             </div>
         </div>
-
-        <input hidden name="inningTurn" value="A" />;
+        <input hidden name="innightTurn" value="A" />;
         <input hidden name="inningInsideTeam" value="home" />;
+
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-inline">
+                    <button class="btn btn-primary">Aloita Peli</button>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-inline">
+                    <button class="btn btn-info">Vuoron Vaihto</button>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-inline">
+                    <button class="btn btn-info">Jakson Vaihto</button>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-inline">
+                    <button class="btn btn-warning">Supervuoro</button>
+                </div>
+            </div>
+        </div>
     </form>
 </div>
 

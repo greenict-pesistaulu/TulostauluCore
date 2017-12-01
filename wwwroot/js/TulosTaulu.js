@@ -1,14 +1,23 @@
 ﻿function updateView()
 {
     $("#controls").show();
-        $.getJSON("/api/status", function (data) {
-        var html = "<p>";
-        for (key in data) {
+    $.getJSON("/api/status", function (data) {
+    // var html = "<p>";
+    for (key in data) {
         $("input[name='" + key + "']").val(data[key]);
-            html += key + ": " + data[key] + "<br>";
-        }
-        html += "</p>";
-        $("#status").html(html);
+        // html += key + ": " + data[key] + "<br>";
+    }
+
+    if (data['inningInsideTeam'] == 'home') {
+        $("input[name='homeLastHitter']").show();
+        $("input[name='awayLastHitter']").hide();
+    } else {
+        $("input[name='homeLastHitter']").hide();
+        $("input[name='awayLastHitter']").show();
+    }
+        
+    // html += "</p>";
+    $("#status").html(html);
     });
     $.getJSON("/api/serial", function (data) {
         var html = "<p>";
