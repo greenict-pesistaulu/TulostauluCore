@@ -76,6 +76,81 @@ namespace TulostauluCore.Controllers
             return new ContentResult { StatusCode = 200 };
         }
 
+        [Route("inningchange")]
+        [HttpGet]
+        public ContentResult InningChange()
+        {
+            Tulostaulu taulu = _ctx.Live.Last();
+            bool GamePeriodChanged = false;
+
+            // Reset Palot ja Jokerit
+            taulu.InningStrikes = 0;
+            taulu.InningJoker = 3;
+
+            // Vaihtuuko vuoropari
+            if (taulu.InningTurn == 'L')
+            {
+                taulu.HomeRuns = 0;
+                taulu.AwayRuns = 0;
+                taulu.PeriodInning += 1;
+                taulu.InningTurn = 'A';
+                // Vaihtuuko jakso
+                if (taulu.PeriodInning > 4)
+                {
+                    taulu.PeriodInning = 1;
+                    taulu.GamePeriod += 1;
+                    GamePeriodChanged = true;
+                }
+            }
+            else
+            {
+                taulu.InningTurn = 'L';
+            }
+
+            // Vaihda koti / vieras joukkueen välillä
+            if (GamePeriodChanged)
+            {
+                taulu.AwayHitter = 1;
+                taulu.AwayLastHitter = 9;
+                taulu.HomeHitter = 1;
+                taulu.HomeLastHitter = 9;
+            }
+            else
+            {
+                if (taulu.InningInsideTeam == "home")
+                {
+                    taulu.InningInsideTeam = "away";
+
+                    // Laske viimeinen lyöjä vuoropariin
+                    taulu.AwayLastHitter = taulu.AwayHitter - 1;
+                    if (taulu.AwayLastHitter > 1)
+                        taulu.AwayLastHitter = 9;
+                }
+                else
+                {
+                    taulu.InningInsideTeam = "home";
+
+                    // Laske viimeinen lyöjä vuoropariin
+                    taulu.HomeLastHitter = taulu.HomeHitter - 1;
+                    if (taulu.HomeLastHitter > 1)
+                        taulu.HomeLastHitter = 9;
+
+                }
+            }
+
+            try
+            {
+                _ctx.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+
+                return new ContentResult { StatusCode = 500, Content = ex.Message };
+            }
+
+            return new ContentResult { StatusCode = 200 };
+        }
+
         [Route("status")]
         [HttpGet]
         public JsonResult GetStatus()
