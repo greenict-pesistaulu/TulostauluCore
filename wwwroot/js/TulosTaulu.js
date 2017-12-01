@@ -26,7 +26,8 @@
         $("#serial").html(html);
     });
 }
-$("#btn-start").on("click", function () {
+$("#startGame").on("click", function () {
+
         $.ajax({
             type: "GET",
             url: "/api/start",
@@ -39,7 +40,83 @@ $("#btn-start").on("click", function () {
                 }
             }
         });
+});
+
+$("#inningChange").on("click", function () {
+    $.ajax({
+        type: "GET",
+        url: "/api/inningchange",
+        statusCode: {
+            200: function () {
+                updateView();
+            },
+            500: function () {
+                $("#status").html("ERROR");
+            }
+        }
     });
+});
+
+$("#superPeriod").on("click", function () {
+    $.ajax({
+        type: "GET",
+        url: "/api/superperiod",
+        statusCode: {
+            200: function () {
+                updateView();
+            },
+            500: function () {
+                $("#status").html("ERROR");
+            }
+        }
+    });
+});
+
+$("#periodChange").on("click", function () {
+    $.ajax({
+        type: "GET",
+        url: "/api/periodchange",
+        statusCode: {
+            200: function () {
+                updateView();
+            },
+            500: function () {
+                $("#status").html("ERROR");
+            }
+        }
+    });
+});
+$("#undoChanges").on("click", function () {
+    $.ajax({
+        type: "GET",
+        url: "/api/undo",
+        statusCode: {
+            200: function () {
+                updateView();
+            },
+            500: function () {
+                $("#status").html("ERROR");
+            }
+        }
+    });
+});
+
+$("#undoChanges").on("click", function () {
+    $.ajax({
+        type: "GET",
+        url: "/api/periodend",
+        statusCode: {
+            200: function () {
+                updateView();
+            },
+            500: function () {
+                $("#status").html("ERROR");
+            }
+        }
+    });
+});
+
+
 $("#updateTulosTaulu button").on("click", function (event) {
     event.preventDefault();
     event.stopPropagation();
@@ -78,3 +155,8 @@ function changeInputValue(target, method) {
 
     }
 }
+
+$(document).ready(function () {
+    $(".dropdown-button").dropdown();
+    $('[data-toggle="tooltip"]').tooltip();
+});
