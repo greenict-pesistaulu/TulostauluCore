@@ -7,14 +7,16 @@
         $("input[name='" + key + "']").val(data[key]);
         html += key + ": " + data[key] + "<br>";
     }
+    console.log(data);
 
     if (data['inningInsideTeam'] == 'home') {
-        $("input[name='homeLastHitter']").show();
-        $("input[name='awayLastHitter']").hide();
+        $('.home').show();
+        $('.away').hide();
+
     } else {
-        $("input[name='homeLastHitter']").hide();
-        $("input[name='awayLastHitter']").show();
-    }
+        $('.home').hide();
+        $('.away').show();
+   }
         
     html += "</p>";
     $("#status").html(html);
@@ -26,21 +28,6 @@
         $("#serial").html(html);
     });
 }
-$("#startGame").on("click", function () {
-
-        $.ajax({
-            type: "GET",
-            url: "/api/start",
-            statusCode: {
-                200: function () {
-                    updateView();
-                },
-                500: function () {
-                    $("#status").html("ERROR");
-                }
-            }
-        });
-});
 
 $("#inningChange").on("click", function () {
     $.ajax({
@@ -124,6 +111,26 @@ $("#updateTulosTaulu button").on("click", function (event) {
     changeInputValue($(this).data('target'), $(this).data('method'));
 
     updateTulosTaulu();
+});
+
+$("#startModal .modal-body button").on("click", function (event) {
+    
+    $.ajax({
+        type: "POST",
+        url: '/api/start',
+        data: {
+            inningInsideTeam: $(this).data('team')
+        },
+        statusCode: {
+            200: function () {
+                updateView();
+            },
+            500: function () {
+                $("#status").html("ERROR");
+            }
+        }
+    });
+    $('#startModal').modal('hide');
 });
 
 function updateTulosTaulu() {
