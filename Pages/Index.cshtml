@@ -130,35 +130,35 @@
         </div>
         <input hidden name="innightTurn" value="A" />;
         <input hidden name="inningInsideTeam" value="home" />;
-        <hr />
-        <div class="row">
-            <div class="col-sm-2 col-sm-offset-1">
-                <div class="form-inline">
-                    <button class="btn btn-lg btn-primary" id="startGame" data-toggle="tooltip" title="Arvotaan aloittaja. Koko peli resetoituu.">Aloita Peli</button>
-                </div>
-            </div>
-            <div class="col-sm-2">
-                <div class="form-inline">
-                    <button class="btn btn-lg btn-info" id="inningChange" data-toggle="tooltip" title="">Vuoron Vaihto</button>
-                </div>
-            </div>
-            <div class="col-sm-2">
-                <div class="form-inline">
-                    <button class="btn btn-lg btn-warning" id="superPeriod" data-toggle="tooltip" title="Arvotaan uusi aloittaja. Uusi jakso.">Supervuoro</button>
-                </div>
-            </div>
-            <div class="col-sm-2">
-                <div class="form-inline">
-                    <button class="btn btn-lg btn-info" id="periodEnd" data-toggle="tooltip" title="Lopeta jakso ennen 4. vuoron loppua. Ei normaali tilanne.">Lopeta Jakso</button>
-                </div>
-            </div>
-            <div class="col-sm-2">
-                <div class="form-inline">
-                    <button class="btn btn-lg btn-danger" id="undoChanges" data-toggle="tooltip" title="Nykyinen tilanne menetetään. Lopullinen peruutus">Peruuta Muutos</button>
-                </div>
+    </form>
+    <hr />
+    <div class="row">
+        <div class="col-sm-2 col-sm-offset-1">
+            <div class="form-inline">
+                <button class="btn btn-lg btn-primary" id="startGame" data-toggle="tooltip" title="Arvotaan aloittaja. Koko peli resetoituu.">Aloita Peli</button>
             </div>
         </div>
-    </form>
+        <div class="col-sm-2">
+            <div class="form-inline">
+                <button class="btn btn-lg btn-info" id="inningChange" data-toggle="tooltip" title="">Vuoron Vaihto</button>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="form-inline">
+                <button class="btn btn-lg btn-warning" id="superPeriod" data-toggle="tooltip" title="Arvotaan uusi aloittaja. Uusi jakso.">Supervuoro</button>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="form-inline">
+                <button class="btn btn-lg btn-info" id="periodEnd" data-toggle="tooltip" title="Lopeta jakso ennen 4. vuoron loppua. Ei normaali tilanne.">Lopeta Jakso</button>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="form-inline">
+                <button class="btn btn-lg btn-danger" id="undoChanges" data-toggle="tooltip" title="Nykyinen tilanne menetetään. Lopullinen peruutus">Peruuta Muutos</button>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="col-md-6">
@@ -167,9 +167,5 @@
     <h2>serial</h2>
     <div id="serial"></div>
 </div>
-
-
-
-
 
 <script src="~/js/TulosTaulu.js"></script>

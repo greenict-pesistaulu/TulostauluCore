@@ -38,49 +38,53 @@
     </environment>
 </head>
 <body>
-            <!--
-            
-    <div class="">
+    <div class="wrapper">
 
-    <ul id="dropdown1" class="dropdown-content">
-        <li><a href="#!">one</a></li>
-        <li><a href="#!">two</a></li>
-        <li class="divider"></li>
-        <li><a href="#!">three</a></li>
-    </ul>
-    <div class="nav-wrapper">
-        <ul class="right hide-on-med-and-down">
-        <li><span class="glyphicon glyphicon-envelope"><a class="dropdown-button" href="#!" data-activates="dropdown1"></a></span></li>
-    </ul>
-      
-
-<nav class="navbar navbar-inverse navbar-fixed-top">
-                <div class="container">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a asp-page="/Index" class="navbar-brand">TulostauluCore</a>
-                    </div>
-                    <div class="navbar-collapse collapse">
-                        <ul class="nav navbar-nav">
-                            <li><a asp-page="/Index">Home</a></li>
-                        </ul>
-                    </div>
+            <nav id="sidebar">
+                <!-- Close Sidebar Button -->
+                <div id="dismiss">
+                    <i class="glyphicon glyphicon-arrow-left"></i>
                 </div>
-            </nav>
-            -->
-            <div class="container body-content">
-                @RenderBody()
-                <hr />
-                <footer>
-                    <p>&copy; 2017 - Tulostaulu</p>
-                </footer>
-            </div>
 
-            @RenderSection("Scripts", required: false)
+                <!-- Sidebar Header -->
+                <div class="sidebar-header">
+                    <h3>Collapsible Sidebar</div>
+                </div>
+
+                <!-- Sidebar Links -->
+                <ul class="list-unstyled components">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><!-- Link with dropdown items -->
+                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                            <li><a href="#">Page</a></li>
+                            <li><a href="#">Page</a></li>
+                            <li><a href="#">Page</a></li>
+                        </ul>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div id="content">
+                <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+                    <i class="glyphicon glyphicon-align-left"></i>
+                    Toggle Sidebar
+                </button>
+            <div>
+
+            <div class="overlay"><div>
+
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; 2017 - Tulostaulu</p>
+            </footer>
+        </div>
+    </div>
+
+    @RenderSection("Scripts", required: false)
 </body>
 </html>
