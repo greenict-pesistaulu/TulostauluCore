@@ -2,10 +2,10 @@
 {
     $("#controls").show();
     $.getJSON("/api/status", function (data) {
-    // var html = "<p>";
+    var html = "<p>";
     for (key in data) {
         $("input[name='" + key + "']").val(data[key]);
-        // html += key + ": " + data[key] + "<br>";
+        html += key + ": " + data[key] + "<br>";
     }
 
     if (data['inningInsideTeam'] == 'home') {
@@ -16,7 +16,7 @@
         $("input[name='awayLastHitter']").show();
     }
         
-    // html += "</p>";
+    html += "</p>";
     $("#status").html(html);
     });
     $.getJSON("/api/serial", function (data) {
@@ -158,22 +158,4 @@ function changeInputValue(target, method) {
 
 $(document).ready(function () {
     $('[data-toggle="tooltip"]').tooltip();
-
-    //Sidebar
-    $("#sidebar").mCustomScrollbar({
-        theme: "minimal"
-    });
-
-    $('#dismiss, .overlay').on('click', function () {
-        $('#sidebar').removeClass('active');
-        $('.overlay').fadeOut();
-    });
-
-    $('#sidebarCollapse').on('click', function () {
-        $('#sidebar').addClass('active');
-        $('.overlay').fadeIn();
-        $('.collapse.in').toggleClass('in');
-        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-    });
-
 });
