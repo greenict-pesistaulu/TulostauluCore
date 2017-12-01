@@ -37,8 +37,8 @@ $("#inningChange").on("click", function () {
             200: function () {
                 updateView();
             },
-            500: function () {
-                $("#status").html("ERROR");
+            500: function (jqXHR) {
+                $("#status").html(jqXHR.responseText);
             }
         }
     });
@@ -52,8 +52,8 @@ $("#superPeriod").on("click", function () {
             200: function () {
                 updateView();
             },
-            500: function () {
-                $("#status").html("ERROR");
+            500: function (jqXHR) {
+                $("#status").html(jqXHR.responseText);
             }
         }
     });
@@ -67,8 +67,8 @@ $("#periodChange").on("click", function () {
             200: function () {
                 updateView();
             },
-            500: function () {
-                $("#status").html("ERROR");
+            500: function (jqXHR) {
+                $("#status").html(jqXHR.responseText);
             }
         }
     });
@@ -81,8 +81,8 @@ $("#undoChanges").on("click", function () {
             200: function () {
                 updateView();
             },
-            500: function () {
-                $("#status").html("ERROR");
+            500: function (jqXHR) {
+                $("#status").html(jqXHR.responseText);
             }
         }
     });
@@ -125,8 +125,8 @@ $("#startModal .modal-body button").on("click", function (event) {
             200: function () {
                 updateView();
             },
-            500: function () {
-                $("#status").html("ERROR");
+            500: function (jqXHR) {
+                $("#status").html(jqXHR.responseText);
             }
         }
     });
@@ -142,8 +142,8 @@ function updateTulosTaulu() {
             200: function () {
                 updateView();
             },
-            500: function () {
-                $("#status").html("ERROR");
+            500: function (jqXHR) {
+                $("#status").html(jqXHR.responseText);
             }
         }
     });
