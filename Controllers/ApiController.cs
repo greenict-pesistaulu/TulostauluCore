@@ -124,8 +124,12 @@ namespace TulostauluCore.Controllers
                 // Vaihtuuko jakso
                 if (taulu.PeriodInning > 4)
                 {
+                    // Score from DB
                     int AwayScore = _ctx.Score.Where(x => x.GamePeriod == taulu.GamePeriod).Sum(x => x.AwayRuns);
                     int HomeScore = _ctx.Score.Where(x => x.GamePeriod == taulu.GamePeriod).Sum(x => x.HomeRuns);
+                    // Score added before SaveChanges()
+                    AwayScore += _ctx.Score.Local.Where(x => x.GamePeriod == taulu.GamePeriod).Sum(x => x.AwayRuns);
+                    HomeScore += _ctx.Score.Local.Where(x => x.GamePeriod == taulu.GamePeriod).Sum(x => x.HomeRuns);
                     if (HomeScore != AwayScore)
                     {
                         if (HomeScore > AwayScore)
@@ -200,6 +204,13 @@ namespace TulostauluCore.Controllers
             return Json(_ctx.Live.Last());
         }
 
+        [Route("score")]
+        [HttpGet]
+        public JsonResult GetScore()
+        {
+            return Json(_ctx.Score);
+        }
+
         [Route("undo")]
         [HttpGet]
         public ContentResult DoUndo()
@@ -208,6 +219,10 @@ namespace TulostauluCore.Controllers
             {
                 History undo = _ctx.History.Last();
                 _ctx.History.Remove(undo);
+                if (undo.InningTurn == 'L')
+                {
+                    _ctx.Score.Remove(_ctx.Score.Last());
+                }
                 _ctx.Live.Add(new Tulostaulu {
                     AwayHitter = undo.AwayHitter,
                     AwayLastHitter = undo.AwayLastHitter,
