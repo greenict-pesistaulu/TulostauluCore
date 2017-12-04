@@ -12,7 +12,7 @@
                 <h2><span class="glyphicon glyphicon-triangle-left home" id="turnTriangleLeftHome"></span>Koti<span class="glyphicon glyphicon-triangle-right home" id="turnTriangleRightHome"></span></h2>
                 <div class="form-inline">
                     <button class="btn btn-lg btn-danger btn-homeRuns-minus" data-target="homeRuns" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
-                    <input readonly class="form-control" size="1" name="homeRuns" autocomplete="off" />
+                    <input readonly class="form-control" size="1" name="homeRuns" autocomplete="off" value="@Model.Taulu.HomeRuns"/>
                     <button class="btn btn-success btn-homeRuns-plus" data-target="homeRuns" data-method="plus"><span class="glyphicon glyphicon-plus"></span></button>
                 </div>
             </div>
@@ -20,7 +20,7 @@
                 <h2>Palot</h2>
                 <div class="form-inline">
                     <button class="btn btn-danger btn-inningStrikes-minus" data-target="inningStrikes" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
-                    <input readonly class="form-control" size="1" name="inningStrikes" autocomplete="off" />
+                    <input readonly class="form-control" size="1" name="inningStrikes" autocomplete="off" value="@Model.Taulu.InningStrikes"/>
                     <button class="btn btn-success btn-inningStrikes-plus" data-target="inningStrikes" data-method="plus"><span class="glyphicon glyphicon-plus"></span></button>
                 </div>
             </div>
@@ -28,7 +28,7 @@
                 <h2><span class="glyphicon glyphicon-triangle-left away" id="turnTriangleLeftAway"></span>Vieras<span class="glyphicon glyphicon-triangle-right away" id="turnTriangleRightAway"></span></h2>
                <div class="form-inline">
                     <button class="btn btn-danger btn-awayRuns-minus" data-target="awayRuns" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
-                    <input readonly class="form-control" size="1" name="awayRuns" autocomplete="off" />
+                    <input readonly class="form-control" size="1" name="awayRuns" autocomplete="off" value="@Model.Taulu.AwayRuns"/>
                     <button class="btn btn-success btn-awayRuns-plus" data-target="awayRuns" data-method="plus"><span class="glyphicon glyphicon-plus"></span></button>
                 </div>
             </div>
@@ -38,7 +38,7 @@
                 <h2>Jaksovoitto</h2>
                 <div class="form-inline">
                     <button class="btn btn-danger btn-homeWins-minus editControl" data-target="homeWins" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
-                    <input readonly class="form-control" size="1" name="homeWins" autocomplete="off" />
+                    <input readonly class="form-control" size="1" name="homeWins" autocomplete="off" value="@Model.Taulu.HomeWins"/>
                     <button class="btn btn-success btn-homeWins-plus editControl" data-target="homeWins" data-method="plus"><span class="glyphicon glyphicon-plus"></span></button>
                 </div>
             </div>
@@ -46,7 +46,7 @@
                 <h2>Jakso</h2>
                 <div class="form-inline">
                     <button class="btn btn-danger btn-gamePeriod-minus editControl" data-target="gamePeriod" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
-                    <input readonly class="form-control" size="1" name="gamePeriod" autocomplete="off" />
+                    <input readonly class="form-control" size="1" name="gamePeriod" autocomplete="off" value="@Model.Taulu.GamePeriod"/>
                     <button class="btn btn-success btn-gamePeriod-plus editControl" data-target="gamePeriod" data-method="plus"><span class="glyphicon glyphicon-plus"></span></button>
                 </div>
             </div>
@@ -54,7 +54,7 @@
                 <h2>Jaksovoitto</h2>
                 <div class="form-inline">
                     <button class="btn btn-danger btn-awayWins-minus editControl" data-target="awayWins" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
-                    <input readonly class="form-control" size="1" name="awayWins" autocomplete="off" />
+                    <input readonly class="form-control" size="1" name="awayWins" autocomplete="off" value="@Model.Taulu.AwayWins"/>
                     <button class="btn btn-success btn-awayWins-plus editControl" data-target="awayWins" data-method="plus"><span class="glyphicon glyphicon-plus"></span></button>
                 </div>
             </div>
@@ -65,8 +65,8 @@
                 <h2>Vuoropari</h2>
                 <div class="form-inline">
                     <button hidden class="btn btn-danger btn-periodInning-minus editControl" data-target="periodInning" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
-                    <input readonly class="form-control" size="1" name="periodInning" autocomplete="off" style="width: 80px !important;" />
-                    <input readonly class="form-control" size="1" name="inningTurn" autocomplete="off" style="width: 80px !important;" />
+                    <input readonly class="form-control" size="1" name="periodInning" autocomplete="off" style="width: 80px !important;" value="@Model.Taulu.PeriodInning"/>
+                    <input readonly class="form-control" size="1" name="inningTurn" autocomplete="off" style="width: 80px !important;" value="@Model.Taulu.InningTurn"/>
                     <button hidden class="btn btn-success btn-periodInning-plus editControl" data-target="periodInning" data-method="plus"><span class="glyphicon glyphicon-plus"></span></button>
                 </div>
             </div>
@@ -74,12 +74,12 @@
                 <h2>Viim. Lyöjä</h2>
                 <div class="form-inline home">
                     <button class="btn btn-danger btn-homeLastHitter-minus editControl" data-target="homeLastHitter" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
-                    <input readonly class="form-control" size="1" name="homeLastHitter" autocomplete="off" />
+                    <input readonly class="form-control" size="1" name="homeLastHitter" autocomplete="off" value="@Model.Taulu.HomeLastHitter"/>
                     <button class="btn btn-success btn-awayLastHitter-plus editControl" data-target="homeLastHitter" data-method="plus"><span class="glyphicon glyphicon-plus"></span></button>
                 </div>
                 <div class="form-inline away" hidden>
                     <button hidden class="btn btn-danger btn-homeLastHitter-minus editControl" data-target="awayLastHitter" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
-                    <input readonly class="form-control" size="1" name="awayLastHitter" autocomplete="off" />
+                    <input readonly class="form-control" size="1" name="awayLastHitter" autocomplete="off" value="@Model.Taulu.AwayLastHitter"/>
                     <button hidden class="btn btn-success btn-awayLastHitter-plus editControl" data-target="awayLastHitter" data-method="plus"><span class="glyphicon glyphicon-plus"></span></button>
                 </div>
             </div>
@@ -87,7 +87,7 @@
                 <h2>Jokeri</h2>
                 <div class="form-inline">
                     <button class="btn btn-danger btn-inningJoker-minus" data-target="inningJoker" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
-                    <input readonly class="form-control" size="1" name="inningJoker" autocomplete="off" />
+                    <input readonly class="form-control" size="1" name="inningJoker" autocomplete="off" value="@Model.Taulu.InningJoker"/>
                     <button class="btn btn-success btn-inningJoker-plus" data-target="inningJoker" data-method="plus"><span class="glyphicon glyphicon-plus"></span></button>
                 </div>
             </div>
@@ -95,17 +95,17 @@
                 <h2>Lyöjä</h2>
                 <div class="form-inline home">
                     <button class="btn btn-danger btn-homeHitter-minus" data-target="homeHitter" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
-                    <input readonly class="form-control" size="1" name="homeHitter" autocomplete="off" />
+                    <input readonly class="form-control" size="1" name="homeHitter" autocomplete="off" value="@Model.Taulu.HomeHitter"/>
                     <button class="btn btn-success btn-awayHitter-plus" data-target="homeHitter" data-method="plus"><span class="glyphicon glyphicon-plus"></span></button>
                 </div>
                 <div class="form-inline away" hidden>
                     <button class="btn btn-danger btn-homeHitter-minus" data-target="awayHitter" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
-                    <input readonly class="form-control" size="1" name="awayHitter" autocomplete="off" />
+                    <input readonly class="form-control" size="1" name="awayHitter" autocomplete="off" value="@Model.Taulu.AwayHitter"/>
                     <button class="btn btn-success btn-awayHitter-plus" data-target="awayHitter" data-method="plus"><span class="glyphicon glyphicon-plus"></span></button>
                 </div>
             </div>
         </div>
-        <input hidden name="inningInsideTeam" value="home" />
+        <input hidden name="inningInsideTeam" value="@Model.Taulu.InningInsideTeam"/>
     </form>
     <hr />
     <div class="row" hidden>
