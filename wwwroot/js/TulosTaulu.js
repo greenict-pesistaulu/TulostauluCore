@@ -27,6 +27,17 @@
         html += "</p>";
         $("#serial").html(html);
     });
+    $.getJSON("/api/score", function (data) {
+        var html = "<div style='display:inline-block; text-align:right'><br>home<br>away</div>";
+        for (key in data) {
+            html += "<div style='display:inline-block; text-align:center; padding: 0px 5px'>";
+            html += data[key]['periodInning'] + "<br>";
+            html += data[key]['homeRuns'] + "<br>";
+            html += data[key]['awayRuns'];
+            html += "</div>";
+        }
+        $("#score").html(html);
+    });
 }
 
 $("#inningChange").on("click", function () {
