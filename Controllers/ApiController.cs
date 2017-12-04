@@ -5,8 +5,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TulostauluCore.Models;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace TulostauluCore.Controllers
 {
     [Route("api/")]
@@ -54,20 +52,114 @@ namespace TulostauluCore.Controllers
             Tulostaulu taulu = _ctx.Live.Last();
             try
             {
-                taulu.HomeRuns = int.Parse(Request.Form["homeRuns"]);
-                taulu.AwayRuns = int.Parse(Request.Form["awayRuns"]);
-                taulu.InningStrikes = int.Parse(Request.Form["inningStrikes"]);
-                taulu.HomeWins = int.Parse(Request.Form["homeWins"]);
-                taulu.AwayWins = int.Parse(Request.Form["awayWins"]);
-                taulu.GamePeriod = int.Parse(Request.Form["gamePeriod"]);
-                taulu.InningJoker = int.Parse(Request.Form["inningJoker"]);
-                taulu.HomeHitter = int.Parse(Request.Form["homeHitter"]);
-                taulu.HomeLastHitter = int.Parse(Request.Form["homeLastHitter"]);
-                taulu.AwayHitter = int.Parse(Request.Form["awayHitter"]);
-                taulu.AwayLastHitter = int.Parse(Request.Form["homeLastHitter"]);
-                taulu.PeriodInning = int.Parse(Request.Form["periodInning"]);
-                taulu.InningTurn = char.Parse(Request.Form["inningTurn"]);
-                taulu.InningInsideTeam = Request.Form["inningInsideTeam"]; 
+                if (int.TryParse(Request.Form["homeRuns"], out int homeRuns))
+                {
+                    if (homeRuns < 0)
+                        homeRuns = 0;
+                    if (homeRuns > 99)
+                        homeRuns = 99;
+                    taulu.HomeRuns = homeRuns;
+                }
+                if (int.TryParse(Request.Form["awayRuns"], out int awayRuns))
+                {
+                    if (awayRuns < 0)
+                        awayRuns = 0;
+                    if (awayRuns > 99)
+                        awayRuns = 99;
+                    taulu.AwayRuns = awayRuns;
+                }
+                if (int.TryParse(Request.Form["inningStrikes"], out int inningStrikes))
+                {
+                    if (inningStrikes < 0)
+                        inningStrikes = 0;
+                    if (inningStrikes > 9)
+                        inningStrikes = 9;
+                    taulu.InningStrikes = inningStrikes;
+                }
+                if (int.TryParse(Request.Form["homeWins"], out int homeWins))
+                {
+                    if (homeWins < 0)
+                        homeWins = 0;
+                    if (homeWins > 9)
+                        homeWins = 9;
+                    taulu.HomeWins = homeWins;
+                }
+                if (int.TryParse(Request.Form["awayWins"], out int awayWins))
+                {
+                    if (awayWins < 0)
+                        awayWins = 0;
+                    if (awayWins > 9)
+                        awayWins = 9;
+                    taulu.AwayWins = awayWins;
+                }
+                if (int.TryParse(Request.Form["gamePeriod"], out int gamePeriod))
+                {
+                    if (gamePeriod < 1)
+                        gamePeriod = 1;
+                    if (gamePeriod > 9)
+                        gamePeriod = 9;
+                    taulu.GamePeriod = gamePeriod;
+                }
+                if (int.TryParse(Request.Form["inningJoker"], out int inningJoker))
+                {
+                    if (inningJoker < 0)
+                        inningJoker = 0;
+                    if (inningJoker > 9)
+                        inningJoker = 9;
+                    taulu.InningJoker = inningJoker;
+                }
+                if (int.TryParse(Request.Form["homeHitter"], out int homeHitter))
+                {
+                    if (homeHitter < 1)
+                        homeHitter = 9;
+                    if (homeHitter > 9)
+                        homeHitter = 1;
+                    taulu.HomeHitter = homeHitter;
+                }
+                if (int.TryParse(Request.Form["homeLastHitter"], out int homeLastHitter))
+                {
+                    if (homeLastHitter < 1)
+                        homeLastHitter = 9;
+                    if (homeLastHitter > 9)
+                        homeLastHitter = 1;
+                    taulu.HomeLastHitter = homeLastHitter;
+                }
+                if (int.TryParse(Request.Form["awayHitter"], out int awayHitter))
+                {
+                    if (awayHitter < 1)
+                        awayHitter = 9;
+                    if (awayHitter > 9)
+                        awayHitter = 1;
+                    taulu.AwayHitter = awayHitter;
+                }
+                if (int.TryParse(Request.Form["awayLastHitter"], out int awayLastHitter))
+                {
+                    if (awayLastHitter < 1)
+                        awayLastHitter = 9;
+                    if (awayLastHitter > 9)
+                        awayLastHitter = 1;
+                    taulu.AwayLastHitter = awayLastHitter;
+                }
+                if (int.TryParse(Request.Form["periodInning"], out int periodInning))
+                {
+                    if (periodInning < 1)
+                        periodInning = 1;
+                    if (periodInning > 9)
+                        periodInning = 9;
+                    taulu.PeriodInning = periodInning;
+                }
+                if (char.TryParse(Request.Form["inningTurn"], out char inningTurn))
+                {
+                    if (inningTurn == 'A' || inningTurn == 'L')
+                        taulu.InningTurn = inningTurn;
+                    else
+                        throw new Exception($"Invalid inningTurn: {inningTurn}");
+                }
+                string inningInsideTeam = Request.Form["inningInsideTeam"];
+                if (inningInsideTeam == "home" || inningInsideTeam == "away")
+                    taulu.InningInsideTeam = inningInsideTeam;
+                else
+                    throw new Exception($"Invalid inningInsideTeam: {inningInsideTeam}");
             }
             catch (Exception ex)
             {
