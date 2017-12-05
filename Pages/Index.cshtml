@@ -108,36 +108,36 @@
         <input hidden name="inningInsideTeam" value="@Model.Taulu.InningInsideTeam"/>
     </form>
     <hr />
-    <div class="row" hidden>
-        <div class="col-sm-2 col-sm-offset-1">
+    <div class="row" text-center>
+        <div class="col-sm-2 col-sm-offset-1" hidden>
             <div class="form-inline">
                 <button class="btn btn-lg btn-primary" id="startGame" data-toggle="modal" data-target="#startModal" title="Arvotaan aloittaja. Koko peli resetoituu.">Aloita Peli</button>
             </div>
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-12">
             <div class="form-inline">
-                <button class="btn btn-lg btn-info" id="inningChange" data-toggle="tooltip" title="Seuraava joukkue sisävuoroon. Uusi vuoro">Vuoron Vaihto</button>
+                <button class="btn btn-lg btn-warning" id="inningChange" data-toggle="tooltip" title="Seuraava joukkue sisävuoroon. Uusi vuoro" style="width: 100%">Vuoron Vaihto</button>
             </div>
         </div>
         <div class="col-sm-2">
-            <div class="form-inline">
+            <div class="form-inline" hidden>
                 <button class="btn btn-lg btn-warning" id="superPeriod" data-toggle="modal" data-target="#superModal" title="Arvotaan uusi aloittaja.">Supervuoro</button>
             </div>
         </div>
         <div class="col-sm-2">
-            <div class="form-inline">
+            <div class="form-inline" hidden>
                 <button class="btn btn-lg btn-danger" id="undoChanges" data-toggle="tooltip" title="Nykyinen tilanne menetetään. Lopullinen peruutus">Peruuta Muutos</button>
             </div>
         </div>
         <div class="col-sm-2">
-            <div class="form-inline">
+            <div class="form-inline" hidden>
                 <button class="btn btn-lg btn-danger" id="editControl" data-toggle="tooltip" title="Näytä ylimääräiset plus ja minus napit">Korjaa Arvoja</button>
             </div>
         </div>
     </div>
 </div>
 
-<div id="debug">
+<div id="debug" hidden>
     <div class="col-md-6">
         <h2>status</h2>
         <div id="status"></div>

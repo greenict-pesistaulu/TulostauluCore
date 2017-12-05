@@ -29,8 +29,7 @@
     </environment>
 </head>
 <body>
-    <nav class="navbar navbar-inverse fixed-top">
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <nav class="navbar fixed-top">
             <ul class="navbar-nav">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -39,17 +38,14 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <button class="btn btn-lg btn-primary" id="startGame" data-toggle="modal" data-target="#startModal" title="Arvotaan aloittaja. Koko peli resetoituu.">Aloita Peli</button>
                         <br /><br />
-                        <button class="btn btn-lg btn-info" id="inningChange" data-toggle="tooltip" title="Seuraava joukkue sisävuoroon. Uusi vuoro">Vuoron Vaihto</button>
-                        <br /><br />
                         <button class="btn btn-lg btn-warning" id="superPeriod" data-toggle="modal" data-target="#superModal" title="Arvotaan uusi aloittaja.">Supervuoro</button>
                         <br /><br />
-                        <button class="btn btn-lg btn-danger" id="undoChanges" data-toggle="tooltip" title="Nykyinen tilanne menetetään. Lopullinen peruutus">Peruuta Muutos</button>
+                        <button class="btn btn-lg btn-danger" id="undoChanges" data-toggle="tooltip" title="Nykyinen tilanne menetetään. Lopullinen peruutus">Peruuta Vuoronvaihto</button>
                         <br /><br />
                         <button class="btn btn-lg btn-danger" id="editControl" data-toggle="tooltip" title="Näytä ylimääräiset plus ja minus napit">Korjaa Arvoja</button>
                     </div>
                 </li>
             </ul>
-        </div>
     </nav>
 
     <div class="container body-content">
