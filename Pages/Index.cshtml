@@ -8,15 +8,15 @@
     <h1>Tulostaulu</h1>
     <form id="updateTulosTaulu" action="/api/update">
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-xs-4">
                 <h2><span class="glyphicon glyphicon-triangle-left home" id="turnTriangleLeftHome"></span>Koti<span class="glyphicon glyphicon-triangle-right home" id="turnTriangleRightHome"></span></h2>
                 <div class="form-inline">
-                    <button class="btn btn-lg btn-danger btn-homeRuns-minus" data-target="homeRuns" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
+                    <button class="btn btn-danger btn-homeRuns-minus" data-target="homeRuns" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
                     <input readonly class="form-control" size="1" name="homeRuns" autocomplete="off" value="@Model.Taulu.HomeRuns"/>
                     <button class="btn btn-success btn-homeRuns-plus" data-target="homeRuns" data-method="plus"><span class="glyphicon glyphicon-plus"></span></button>
                 </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-xs-4">
                 <h2>Palot</h2>
                 <div class="form-inline">
                     <button class="btn btn-danger btn-inningStrikes-minus" data-target="inningStrikes" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
@@ -24,7 +24,7 @@
                     <button class="btn btn-success btn-inningStrikes-plus" data-target="inningStrikes" data-method="plus"><span class="glyphicon glyphicon-plus"></span></button>
                 </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-xs-4">
                 <h2><span class="glyphicon glyphicon-triangle-left away" id="turnTriangleLeftAway"></span>Vieras<span class="glyphicon glyphicon-triangle-right away" id="turnTriangleRightAway"></span></h2>
                <div class="form-inline">
                     <button class="btn btn-danger btn-awayRuns-minus" data-target="awayRuns" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
@@ -34,7 +34,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-xs-4">
                 <h2>Jaksovoitto</h2>
                 <div class="form-inline">
                     <button class="btn btn-danger btn-homeWins-minus editControl" data-target="homeWins" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
@@ -42,7 +42,7 @@
                     <button class="btn btn-success btn-homeWins-plus editControl" data-target="homeWins" data-method="plus"><span class="glyphicon glyphicon-plus"></span></button>
                 </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-xs-4">
                 <h2>Jakso</h2>
                 <div class="form-inline">
                     <button class="btn btn-danger btn-gamePeriod-minus editControl" data-target="gamePeriod" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
@@ -50,7 +50,7 @@
                     <button class="btn btn-success btn-gamePeriod-plus editControl" data-target="gamePeriod" data-method="plus"><span class="glyphicon glyphicon-plus"></span></button>
                 </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-xs-4">
                 <h2>Jaksovoitto</h2>
                 <div class="form-inline">
                     <button class="btn btn-danger btn-awayWins-minus editControl" data-target="awayWins" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
@@ -61,7 +61,7 @@
         </div>
 
         <div class="row">
-            <div class="col-sm-3">
+            <div class="col-xs-3">
                 <h2>Vuoropari</h2>
                 <div class="form-inline">
                     <button hidden class="btn btn-danger btn-periodInning-minus editControl" data-target="periodInning" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
@@ -70,7 +70,7 @@
                     <button hidden class="btn btn-success btn-periodInning-plus editControl" data-target="periodInning" data-method="plus"><span class="glyphicon glyphicon-plus"></span></button>
                 </div>
             </div>
-            <div class="col-sm-3">
+            <div class="col-xs-3">
                 <h2>Viim. Lyöjä</h2>
                 <div class="form-inline home">
                     <button class="btn btn-danger btn-homeLastHitter-minus editControl" data-target="homeLastHitter" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
@@ -83,7 +83,7 @@
                     <button hidden class="btn btn-success btn-awayLastHitter-plus editControl" data-target="awayLastHitter" data-method="plus"><span class="glyphicon glyphicon-plus"></span></button>
                 </div>
             </div>
-            <div class="col-sm-3">
+            <div class="col-xs-3">
                 <h2>Jokeri</h2>
                 <div class="form-inline">
                     <button class="btn btn-danger btn-inningJoker-minus" data-target="inningJoker" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
@@ -91,7 +91,7 @@
                     <button class="btn btn-success btn-inningJoker-plus" data-target="inningJoker" data-method="plus"><span class="glyphicon glyphicon-plus"></span></button>
                 </div>
             </div>
-            <div class="col-sm-3">
+            <div class="col-xs-3">
                 <h2>Lyöjä</h2>
                 <div class="form-inline home">
                     <button class="btn btn-danger btn-homeHitter-minus" data-target="homeHitter" data-method="minus"><span class="glyphicon glyphicon-minus"></span></button>
