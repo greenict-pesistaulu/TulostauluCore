@@ -78,6 +78,17 @@ $("#undoChanges").on("click", function () {
 
 $('#editControl').on("click", function () {
     $('.editControl').toggle();
+    $('#debug').toggle();
+
+    $(this).toggle(
+        function () {
+            $(this).html("Debug On");
+        },
+        function () {
+            $(this).html("Debug Off");
+        }
+    );
+    $(this).show();
 });
 
 
