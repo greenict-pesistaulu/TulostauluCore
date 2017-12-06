@@ -77,4 +77,12 @@ h2 {
 .dropdown-menu{
     background-color: rgba(255,255,255,0); 
     padding-top: 20px;
+    box-shadow: none;
+    border: none;
+}
+.dropdown-menu li{
+    padding-bottom: 5px;
+}
+.dropdown-menu button {
+    width:100%;
 }
