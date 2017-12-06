@@ -35,20 +35,15 @@
                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
                         <span class="glyphicon glyphicon-menu-hamburger" style="font-size: 4em;"></span>
                     </a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <button class="btn btn-lg btn-primary" id="startGame" data-toggle="modal" data-target="#startModal" title="Arvotaan aloittaja. Koko peli resetoituu.">Aloita Peli</button>
-                        </li>
-                        <li>
-                            <button class="btn btn-lg btn-warning" id="superPeriod" data-toggle="modal" data-target="#superModal" title="Arvotaan uusi aloittaja.">Supervuoro</button>
-                        </li>
-                        <li>
-                            <button class="btn btn-lg btn-danger" id="undoChanges" data-toggle="tooltip" title="Nykyinen tilanne menetetään. Lopullinen peruutus">Peruuta Vuoronvaihto</button>
-                        </li>
-                        <li>
-                            <button class="btn btn-lg btn-danger" id="editControl" data-toggle="tooltip" title="Näytä ylimääräiset plus ja minus napit">Korjaa Arvoja</button>
-                        </li>
-                    </ul>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <button class="btn btn-lg btn-primary" id="startGame" data-toggle="modal" data-target="#startModal" title="Arvotaan aloittaja. Koko peli resetoituu.">Aloita Peli</button>
+                        <br /><br />
+                        <button class="btn btn-lg btn-warning" id="superPeriod" data-toggle="modal" data-target="#superModal" title="Arvotaan uusi aloittaja.">Supervuoro</button>
+                        <br /><br />
+                        <button class="btn btn-lg btn-danger" id="undoChanges" data-toggle="tooltip" title="Nykyinen tilanne menetetään. Lopullinen peruutus">Peruuta Vuoronvaihto</button>
+                        <br /><br />
+                        <button class="btn btn-lg btn-danger" id="editControl" data-toggle="tooltip" title="Näytä ylimääräiset plus ja minus napit">Korjaa Arvoja</button>
+                    </div>
                 </li>
             </ul>
     </nav>
