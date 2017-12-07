@@ -80,15 +80,9 @@ $('#editControl').on("click", function () {
     $('.editControl').toggle();
     $('#debug').toggle();
 
-    $(this).toggle(
-        function () {
-            $(this).html("Debug On");
-        },
-        function () {
-            $(this).html("Debug Off");
-        }
-    );
-    $(this).show();
+    $(this).text(function (i, text) {
+        return text === "Debug On" ? "Debug Off" : "Debug On";
+    });
 });
 
 
