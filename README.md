@@ -8,4 +8,4 @@ Milla Raikamaa
 
 Lahti University of Applied Sciences  
 Information and Communication Technology  
-https://lamk.fi
+http://lamk.fi
