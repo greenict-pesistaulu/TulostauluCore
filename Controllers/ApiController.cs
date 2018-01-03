@@ -209,8 +209,6 @@ namespace TulostauluCore.Controllers
                     GamePeriod = taulu.GamePeriod,
                     PeriodInning = taulu.PeriodInning
                 });
-                taulu.HomeRuns = 0;
-                taulu.AwayRuns = 0;
                 taulu.PeriodInning += 1;
                 taulu.InningTurn = 'A';
                 // Vaihtuuko jakso
@@ -233,6 +231,8 @@ namespace TulostauluCore.Controllers
                             taulu.AwayWins += 1;
                         }
                     }
+                    taulu.HomeRuns = 0;
+                    taulu.AwayRuns = 0;
                     taulu.PeriodInning = 1;
                     taulu.GamePeriod += 1;
                     GamePeriodChanged = true;
@@ -360,31 +360,31 @@ namespace TulostauluCore.Controllers
             if (taulu.InningInsideTeam == "home")
             {
                 return Json(
-                        $"a{taulu.HomeRuns}" +
-                        $"b{taulu.AwayRuns}" +
-                        $"c{taulu.InningStrikes}" +
-                        $"d{taulu.HomeWins}" +
-                        $"e{taulu.AwayWins}" +
-                        $"f{taulu.GamePeriod}" +
-                        $"g{taulu.InningJoker}" +
-                        $"h{taulu.HomeHitter}" +
-                        $"i{taulu.HomeLastHitter}" +
-                        $"j{taulu.PeriodInning}{taulu.InningTurn}"
+                        $"a1{taulu.HomeRuns:00}\r\n\n" +
+                        $"b1{taulu.AwayRuns:00}\r\n\n" +
+                        $"c{taulu.InningStrikes}\r\n\n" +
+                        $"d{taulu.HomeWins}\r\n\n" +
+                        $"e{taulu.AwayWins}\r\n\n" +
+                        $"f{taulu.GamePeriod}\r\n\n" +
+                        $"g{taulu.InningJoker}\r\n\n" +
+                        $"h{taulu.HomeHitter}\r\n\n" +
+                        $"i{taulu.HomeLastHitter}\r\n\n" +
+                        $"j{taulu.PeriodInning}.{taulu.InningTurn}\r\n\n"
                     );
             }
             else
             {
                 return Json(
-                        $"a{taulu.HomeRuns}" +
-                        $"b{taulu.AwayRuns}" +
-                        $"c{taulu.InningStrikes}" +
-                        $"d{taulu.HomeWins}" +
-                        $"e{taulu.AwayWins}" +
-                        $"f{taulu.GamePeriod}" +
-                        $"g{taulu.InningJoker}" +
-                        $"h{taulu.AwayHitter}" +
-                        $"i{taulu.AwayLastHitter}" +
-                        $"j{taulu.PeriodInning}{taulu.InningTurn}"
+                        $"a1{taulu.HomeRuns:00}\r\n\n" +
+                        $"b1{taulu.AwayRuns:00}\r\n\n" +
+                        $"c{taulu.InningStrikes}\r\n\n" +
+                        $"d{taulu.HomeWins}\r\n\n" +
+                        $"e{taulu.AwayWins}\r\n\n" +
+                        $"f{taulu.GamePeriod}\r\n\n" +
+                        $"g{taulu.InningJoker}\r\n\n" +
+                        $"h{taulu.AwayHitter}\r\n\n" +
+                        $"i{taulu.AwayLastHitter}\r\n\n" +
+                        $"j{taulu.PeriodInning}.{taulu.InningTurn}\r\n\n"
                     );
             }
         }
