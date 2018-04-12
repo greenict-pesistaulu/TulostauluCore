@@ -392,7 +392,7 @@ namespace TulostauluCore.Controllers
 
         [Route("halt")]
         [HttpGet]
-        public void ShutdownSelf()
+        public ContentResult ShutdownSelf()
         {
             var process = new Process()
             {
@@ -405,7 +405,15 @@ namespace TulostauluCore.Controllers
                     CreateNoWindow = true,
                 }
             };
-            process.Start();
+            try
+            {
+                process.Start();
+                return new ContentResult { StatusCode = 200 };
+            }
+            catch (Exception ex)
+            {
+                return new ContentResult { StatusCode = 500, Content = ex.Message };
+            }
         }
     }
 }
