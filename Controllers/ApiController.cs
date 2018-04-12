@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TulostauluCore.Models;
+using System.Diagnostics;
 
 namespace TulostauluCore.Controllers
 {
@@ -387,6 +388,24 @@ namespace TulostauluCore.Controllers
                         $"j{taulu.PeriodInning}.{taulu.InningTurn}\r\n\n"
                     );
             }
+        }
+
+        [Route("halt")]
+        [HttpGet]
+        public void ShutdownSelf()
+        {
+            var process = new Process()
+            {
+                StartInfo = new ProcessStartInfo
+                {
+                    FileName = "/bin/bash",
+                    Arguments = $"-c \"shutdown now\"",
+                    RedirectStandardOutput = true,
+                    UseShellExecute = false,
+                    CreateNoWindow = true,
+                }
+            };
+            process.Start();
         }
     }
 }
