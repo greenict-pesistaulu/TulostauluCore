@@ -7,7 +7,7 @@
         $("input[name='" + key + "']").val(data[key]);
         html += key + ": " + data[key] + "<br>";
     }
-    console.log(data);
+    //console.log(data);
 
     if (data['inningInsideTeam'] == 'home') {
         $('.home').show();
@@ -85,6 +85,21 @@ $('#editControl').on("click", function () {
     });
 });
 
+$('#shutdownNow').on("click", function () {
+    $.ajax({
+        type: "GET",
+        url: "/api/halt",
+        statusCode: {
+            200: function () {
+                $('h1').text("Sammutettu");
+            },
+            500: function (jqXHR) {
+                $("#status").html(jqXHR.responseText);
+            }
+        },
+        complete: enableButtons()
+    });
+});
 
 $("#updateTulosTaulu button").on("click", function (event) {
     disableButtons();
