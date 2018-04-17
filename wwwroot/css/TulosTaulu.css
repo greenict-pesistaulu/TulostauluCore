@@ -91,6 +91,11 @@ h2 {
     float: left;
 }
 
+#ohjeet {
+    float: right;
+    display: inline-block !important;
+}
+
 footer {
     display: none;
 }

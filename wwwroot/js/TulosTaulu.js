@@ -81,7 +81,7 @@ $('#editControl').on("click", function () {
     $('#debug').toggle();
 
     $(this).text(function (i, text) {
-        return text === "Debug On" ? "Debug Off" : "Debug On";
+        return text === "Korjaustila" ? "Korjaustila Off" : "Korjaustila";
     });
 });
 
