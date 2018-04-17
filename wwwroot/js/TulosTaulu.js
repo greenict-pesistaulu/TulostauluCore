@@ -85,7 +85,7 @@ $('#editControl').on("click", function () {
     });
 });
 
-$('#shutdownNow').on("click", function () {
+$('#shutdownAgree').on("click", function () {
     $.ajax({
         type: "GET",
         url: "/api/halt",
@@ -212,4 +212,6 @@ function enableButtons() {
 
 $(document).ready(function () {
     $('[data-toggle="tooltip"]').tooltip();
+
+    setInterval(updateView, 15000);
 });
