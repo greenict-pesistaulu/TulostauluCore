@@ -361,8 +361,8 @@ namespace TulostauluCore.Controllers
             if (taulu.InningInsideTeam == "home")
             {
                 return Json(
-                        $"a1{taulu.HomeRuns:00}\r\n\n" +
-                        $"b1{taulu.AwayRuns:00}\r\n\n" +
+                        $"a{taulu.HomeRuns:00}\r\n\n" +
+                        $"b{taulu.AwayRuns:00}\r\n\n" +
                         $"c{taulu.InningStrikes}\r\n\n" +
                         $"d{taulu.HomeWins}\r\n\n" +
                         $"e{taulu.AwayWins}\r\n\n" +
@@ -376,8 +376,8 @@ namespace TulostauluCore.Controllers
             else
             {
                 return Json(
-                        $"a1{taulu.HomeRuns:00}\r\n\n" +
-                        $"b1{taulu.AwayRuns:00}\r\n\n" +
+                        $"a{taulu.HomeRuns:00}\r\n\n" +
+                        $"b{taulu.AwayRuns:00}\r\n\n" +
                         $"c{taulu.InningStrikes}\r\n\n" +
                         $"d{taulu.HomeWins}\r\n\n" +
                         $"e{taulu.AwayWins}\r\n\n" +
