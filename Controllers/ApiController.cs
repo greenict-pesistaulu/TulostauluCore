@@ -259,11 +259,8 @@ namespace TulostauluCore.Controllers
                     taulu.InningInsideTeam = "away";
 
                     // Laske viimeinen lyöjä vuoropariin
-                    if(taulu.PeriodInning != 1) {
-                        taulu.AwayLastHitter = taulu.AwayHitter;
-                        taulu.AwayHitter++;
-                    }
-
+                    if(taulu.PeriodInning != 1)
+                        taulu.AwayLastHitter = taulu.AwayHitter - 1;
                     if (taulu.AwayLastHitter < 1)
                         taulu.AwayLastHitter = 9;
                 }
@@ -273,11 +270,7 @@ namespace TulostauluCore.Controllers
 
                     // Laske viimeinen lyöjä vuoropariin
                     if(taulu.PeriodInning != 1)
-                    {
-                        taulu.HomeLastHitter = taulu.HomeHitter;
-                        taulu.HomeHitter++;
-                    }
-
+                        taulu.HomeLastHitter = taulu.HomeHitter - 1;
                     if (taulu.HomeLastHitter < 1)
                         taulu.HomeLastHitter = 9;
 
