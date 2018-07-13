@@ -227,7 +227,7 @@ namespace TulostauluCore.Controllers
                         {
                             taulu.HomeWins += 1;
                         }
-                        else
+                        else if (AwayScore > HomeScore)
                         {
                             taulu.AwayWins += 1;
                         }
