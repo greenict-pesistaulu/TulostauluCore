@@ -216,11 +216,13 @@ namespace TulostauluCore.Controllers
                 if (taulu.PeriodInning > 4)
                 {
                     // Score from DB
-                    int AwayScore = _ctx.Score.Where(x => x.GamePeriod == taulu.GamePeriod).Sum(x => x.AwayRuns);
-                    int HomeScore = _ctx.Score.Where(x => x.GamePeriod == taulu.GamePeriod).Sum(x => x.HomeRuns);
+                    int AwayScore = _ctx.Score.Where(x => x.GamePeriod == taulu.GamePeriod).Max(x => x.AwayRuns);
+                    int HomeScore = _ctx.Score.Where(x => x.GamePeriod == taulu.GamePeriod).Max(x => x.HomeRuns);
                     // Score added before SaveChanges()
-                    AwayScore += _ctx.Score.Local.Where(x => x.GamePeriod == taulu.GamePeriod).Sum(x => x.AwayRuns);
-                    HomeScore += _ctx.Score.Local.Where(x => x.GamePeriod == taulu.GamePeriod).Sum(x => x.HomeRuns);
+                    AwayScore = _ctx.Score.Local.Where(x => x.GamePeriod == taulu.GamePeriod).Max(x => x.AwayRuns);
+                    HomeScore = _ctx.Score.Local.Where(x => x.GamePeriod == taulu.GamePeriod).Max(x => x.HomeRuns);
+
+                    /* Debug.WriteLine("SCOREAE " + AwayScore + " : " + HomeScore); */
                     if (HomeScore != AwayScore)
                     {
                         if (HomeScore > AwayScore)
