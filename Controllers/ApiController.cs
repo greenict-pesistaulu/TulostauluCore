@@ -358,11 +358,22 @@ namespace TulostauluCore.Controllers
              * j - Tällähetkellä pelattava vuoropari. 2 digittiä. Max. esitettävä numero "9 + "A" ja "L" ykköset digitissä"
              */
             Tulostaulu taulu = _ctx.Live.Last();
+            string homeRuns = taulu.HomeRuns.ToString();
+            string awayRuns = taulu.AwayRuns.ToString();
+            // taulu front zero removal on <10 values.
+            if (taulu.HomeRuns < 10)
+            {
+                homeRuns = "10" + homeRuns;
+            }
+            if (taulu.AwayRuns < 10)
+            {
+                awayRuns = "10" + awayRuns;
+            }
             if (taulu.InningInsideTeam == "home")
             {
                 return Json(
-                        $"a{taulu.HomeRuns:00}\r\n\n" +
-                        $"b{taulu.AwayRuns:00}\r\n\n" +
+                        $"a{homeRuns}\r\n\n" +
+                        $"b{awayRuns}\r\n\n" +
                         $"c{taulu.InningStrikes}\r\n\n" +
                         $"d{taulu.HomeWins}\r\n\n" +
                         $"e{taulu.AwayWins}\r\n\n" +
@@ -376,8 +387,8 @@ namespace TulostauluCore.Controllers
             else
             {
                 return Json(
-                        $"a{taulu.HomeRuns:00}\r\n\n" +
-                        $"b{taulu.AwayRuns:00}\r\n\n" +
+                        $"a{homeRuns}\r\n\n" +
+                        $"b{awayRuns}\r\n\n" +
                         $"c{taulu.InningStrikes}\r\n\n" +
                         $"d{taulu.HomeWins}\r\n\n" +
                         $"e{taulu.AwayWins}\r\n\n" +
